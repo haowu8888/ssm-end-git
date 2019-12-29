@@ -1,5 +1,7 @@
 package com.domain;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 
 /**
@@ -8,8 +10,10 @@ import java.io.Serializable;
 public class Account implements Serializable {
     private Integer id;
     private Integer uid;
-    private double money;
+    private double  money;
 
+    //日期格式化注解
+    //@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     public Integer getId() {
         return id;
     }
