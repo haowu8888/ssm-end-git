@@ -57,8 +57,8 @@
                     </li>
 
                     <li id="admin-datalist">
-                        <a href="/ssm/account/findAll?page=1&size=5">
-                            <i class="fa fa-circle-o"></i> 账户信息管理
+                        <a href="/ssm/hostel/findAll?page=1&size=5">
+                            <i class="fa fa-circle-o"></i> 客房信息管理
                         </a>
                     </li>
                     <li id="admin-datalist1">

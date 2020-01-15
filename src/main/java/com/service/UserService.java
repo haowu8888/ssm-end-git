@@ -1,16 +1,6 @@
 package com.service;
 
-import com.domain.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
-import java.util.List;
-
-/**
- * Service层
- */
-public interface  UserService {
-    /**
-     * 查询所有用户
-     * @return
-     */
-    public List<User> findUser() throws Exception;
+public interface UserService extends UserDetailsService {
 }
