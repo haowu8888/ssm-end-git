@@ -1,9 +1,7 @@
 package com.controller;
 
-import com.domain.Account;
 import com.domain.Hostel;
 import com.github.pagehelper.PageInfo;
-import com.service.AccountService;
 import com.service.HostelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,7 +34,7 @@ public class HostelController {
     public void save(Hostel hostel, HttpServletRequest request, HttpServletResponse response) throws Exception {
         //System.out.println("表现层 保存账户信息");
         //调用service方法
-        hostelService.saveAccount(hostel);
+        hostelService.saveHostel(hostel);
         response.sendRedirect(request.getContextPath()+"/hostel/findAll");
         //return "redirect:findAll";
     }

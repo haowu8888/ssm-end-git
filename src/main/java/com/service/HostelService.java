@@ -1,6 +1,5 @@
 package com.service;
 
-import com.domain.Account;
 import com.domain.Hostel;
 
 import java.util.List;
@@ -23,7 +22,7 @@ public interface HostelService {
      *
      * @param hostel
      */
-    public void saveAccount(Hostel hostel) throws Exception;
+    public void saveHostel(Hostel hostel) throws Exception;
 
     /**
      * 查询单个
