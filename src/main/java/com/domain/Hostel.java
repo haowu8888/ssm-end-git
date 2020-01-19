@@ -1,17 +1,18 @@
 package com.domain;
 
+import java.io.Serializable;
+
 /**
  * 客房实体类
  */
-public class Hostel {
+public class Hostel implements Serializable {
         private int id;
-        private int hid;
         private String hostelName;
         private String hostelImage;
         private float hostelPrice;
         private String hostelSketch;
         private int hostelStatus;
-        private int cid;
+        private String cname;
 
         public int getId() {
                 return id;
@@ -19,14 +20,6 @@ public class Hostel {
 
         public void setId(int id) {
                 this.id = id;
-        }
-
-        public int getHid() {
-                return hid;
-        }
-
-        public void setHid(int hid) {
-                this.hid = hid;
         }
 
         public String getHostelName() {
@@ -69,25 +62,24 @@ public class Hostel {
                 this.hostelStatus = hostelStatus;
         }
 
-        public int getCid() {
-                return cid;
+        public String getCname() {
+                return cname;
         }
 
-        public void setCid(int cid) {
-                this.cid = cid;
+        public void setCname(String cname) {
+                this.cname = cname;
         }
 
         @Override
         public String toString() {
                 return "Hostel{" +
                         "id=" + id +
-                        ", hid=" + hid +
                         ", hostelName='" + hostelName + '\'' +
                         ", hostelImage='" + hostelImage + '\'' +
                         ", hostelPrice=" + hostelPrice +
                         ", hostelSketch='" + hostelSketch + '\'' +
                         ", hostelStatus=" + hostelStatus +
-                        ", cid=" + cid +
+                        ", cname='" + cname + '\'' +
                         '}';
         }
 }

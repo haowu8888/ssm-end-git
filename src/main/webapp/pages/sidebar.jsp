@@ -62,7 +62,7 @@
                         </a>
                     </li>
                     <li id="admin-datalist1">
-                        <a href="/ssm/user/findAll">
+                        <a href="/ssm/users/findAll">
                             <i class="fa fa-circle-o"></i> 用户信息管理
                         </a>
                     </li>

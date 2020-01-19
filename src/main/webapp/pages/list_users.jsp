@@ -13,6 +13,8 @@
 
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
     <!-- 页面meta /-->
 
@@ -24,20 +26,24 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/datepicker/datepicker3.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/daterangepicker/daterangepicker.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/treeTable/jquery.treetable.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/treeTable/jquery.treetable.theme.default.css">
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/plugins/treeTable/jquery.treetable.theme.default.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/select2/select2.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/colorpicker/bootstrap-colorpicker.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/adminLTE/css/AdminLTE.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/adminLTE/css/skins/_all-skins.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/ionslider/ion.rangeSlider.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/ionslider/ion.rangeSlider.skinNice.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/bootstrap-slider/slider.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
 </head>
 
 <body class="hold-transition skin-purple sidebar-mini">
@@ -86,96 +92,74 @@
                         <div class="pull-left">
                             <div class="form-group form-inline">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-default" title="新建" onclick="location.href='${pageContext.request.contextPath}/pages/user_add.jsp'"><i class="fa fa-file-o"></i> 新建</button>
-                                    <button type="button" class="btn btn-default" title="删除"><i class="fa fa-trash-o"></i> 删除</button>
-                                    <button type="button" class="btn btn-default" title="开启"><i class="fa fa-check"></i> 开启</button>
-                                    <button type="button" class="btn btn-default" title="屏蔽"><i class="fa fa-ban"></i> 屏蔽</button>
-                                    <button type="button" class="btn btn-default" title="刷新"><i class="fa fa-refresh"></i> 刷新</button>
+                                    <button type="button" class="btn btn-default" title="新建"
+                                            onclick="location.href='${pageContext.request.contextPath}/pages/add_users.jsp'">
+                                        <i class="fa fa-file-o"></i> 新建
+                                    </button>
+                                    <button type="button" class="btn btn-default" title="刷新"
+                                            onclick="location.href='${pageContext.request.contextPath}/users/findAll'">
+                                        <i class="fa fa-refresh"></i> 刷新
+                                    </button>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="box-tools pull-right">
-                            <div class="has-feedback">
-                                <input type="text" class="form-control input-sm" placeholder="搜索">
-                                <span class="glyphicon glyphicon-search form-control-feedback"></span>
                             </div>
                         </div>
                         <!--工具栏/-->
 
                         <!--数据列表-->
-                        <table id="dataList" class="table table-bordered table-striped table-hover dataTable">
+                        <table id="dataList" class="table table-bordered table-hover dataTable">
                             <thead>
                             <tr>
-                                <th class="sorting_asc">ID</th>
-                                <th class="sorting_desc">用户名</th>
-                                <th class="sorting_asc sorting_asc_disabled">地址</th>
-                                <th class="sorting_asc sorting_asc_disabled">性别</th>
-                                <th class="sorting_asc sorting_asc_disabled">生日</th>
-                              <%--  <th class="sorting_desc sorting_desc_disabled">Engine version [屏蔽降序]</th>
-                                <th class="sorting">CSS grade [点击排序]</th>
-                                <th class="text-center sorting">屏蔽</th>
-                                <th class="text-center">操作</th>--%>
+                                <th>用户名</th>
+                                <th>密码</th>
+                                <th>状态</th>
+                                <th>权限</th>
+                                <th>管理</th>
                             </tr>
                             </thead>
                             <tbody>
 
-                            <c:forEach items="${UserList}" var="user">
-                            <tr>
-                                <td>${user.id}</td>
-                                <td>${user.username}</td>
-                                <td>${user.address}</td>
-                                <td>${user.sex}</td>
-                                <td>${user.birthday}</td>
-                              <%--  <td>Win 95+</td>
-                                <td> 4</td>
-                                <td>X</td>
-                                <td class="text-center">开启</td>--%>
-                                <td class="text-center">
-                                    <button type="button" class="btn bg-olive btn-xs">订单</button>
-                                    <button type="button" class="btn bg-olive btn-xs">详情</button>
-                                    <button type="button" class="btn bg-olive btn-xs">编辑</button>
-                                </td>
-                            </tr>
+                            <c:forEach items="${UsersList.list}" var="users">
+                                <tr>
+                                    <td>${users.username}</td>
+                                    <td>${users.password}</td>
+                                    <c:if test="${users.status==1}">
+                                        <td>未激活</td>
+                                    </c:if>
+                                    <c:if test="${users.status==9}">
+                                        <td>已激活</td>
+                                    </c:if>
+                                    <c:if test="${users.role==1}">
+                                        <td>旅客</td>
+                                    </c:if>
+                                    <c:if test="${users.role==99}">
+                                        <td>管理员</td>
+                                    </c:if>
+                                    <td class="text-center">
+                                        <button type="button" class="btn bg-olive btn-xs"
+                                                onclick="location.href='${pageContext.request.contextPath}/users/findById?id='+${users.id}">
+                                            编辑
+                                        </button>
+                                        <button type="button" class="btn bg-olive btn-xs"
+                                                onclick="location.href='${pageContext.request.contextPath}/users/delete?id='+${users.id}">
+                                            删除
+                                        </button>
+                                    </td>
+                                </tr>
                             </c:forEach>
-
                             </tbody>
-                            <!--
-                        <tfoot>
-                        <tr>
-                        <th>Rendering engine</th>
-                        <th>Browser</th>
-                        <th>Platform(s)</th>
-                        <th>Engine version</th>
-                        <th>CSS grade</th>
-                        </tr>
-                        </tfoot>-->
+                            <%--      <tfoot>
+                                  <tr>
+                                      <th>用户名</th>
+                                      <th>密码</th>
+                                      <th>状态</th>
+                                      <th>权限</th>
+                                      <th>管理</th>
+                                  </tr>
+                                  </tfoot>--%>
                         </table>
                         <!--数据列表/-->
-
-                        <!--工具栏-->
-                        <div class="pull-left">
-                            <div class="form-group form-inline">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default" title="新建" onclick="location.href='${pageContext.request.contextPath}/pages/user_add.jsp'"><i class="fa fa-file-o"></i> 新建</button>
-                                    <button type="button" class="btn btn-default" title="删除"><i class="fa fa-trash-o"></i> 删除</button>
-                                    <button type="button" class="btn btn-default" title="开启"><i class="fa fa-check"></i> 开启</button>
-                                    <button type="button" class="btn btn-default" title="屏蔽"><i class="fa fa-ban"></i> 屏蔽</button>
-                                    <button type="button" class="btn btn-default" title="刷新"><i class="fa fa-refresh"></i> 刷新</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="box-tools pull-right">
-                            <div class="has-feedback">
-                                <input type="text" class="form-control input-sm" placeholder="搜索">
-                                <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                            </div>
-                        </div>
-                        <!--工具栏/-->
-
                     </div>
                     <!-- 数据表格 /-->
-
-
                 </div>
                 <!-- /.box-body -->
 
@@ -183,13 +167,16 @@
                 <div class="box-footer">
                     <div class="pull-left">
                         <div class="form-group form-inline">
-                            总共2 页，共14 条数据。 每页
-                            <select class="form-control">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                            总共${UsersList.pages}页，共${UsersList.total}条数据。 每页
+                            <select class="form-control" id="selectPage" onchange="changePageSize()">
+                                <c:forEach begin="1" end="5" var="number">
+                                    <c:if test="${UsersList.pageSize==number}">
+                                        <option selected="selected">${number}</option>
+                                    </c:if>
+                                    <c:if test="${UsersList.pageSize!=number}">
+                                        <option>${number}</option>
+                                    </c:if>
+                                </c:forEach>
                             </select> 条
                         </div>
                     </div>
@@ -197,17 +184,30 @@
                     <div class="box-tools pull-right">
                         <ul class="pagination">
                             <li>
-                                <a href="#" aria-label="Previous">首页</a>
+                                <a href="${pageContext.request.contextPath}/users/findAll?page=1&size=${UsersList.pageSize}"
+                                   aria-label="Previous">首页</a>
                             </li>
-                            <li><a href="#">上一页</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">下一页</a></li>
                             <li>
-                                <a href="#" aria-label="Next">尾页</a>
+                                <a href="${pageContext.request.contextPath}/users/findAll?page=${UsersList.pageNum-1}&size=${UsersList.pageSize}">上一页</a>
+                            </li>
+                            <c:forEach begin="1" end="${UsersList.pages}" var="currentPageNum">
+                                <c:if test="${currentPageNum==UsersList.pageNum}">
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/users/findAll?page=${currentPageNum}&size=${UsersList.pageSize}"
+                                           style="background-color:#0f74a8;color:#f0f0f0">${currentPageNum}</a></li>
+                                </c:if>
+                                <c:if test="${currentPageNum!=UsersList.pageNum}">
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/users/findAll?page=${currentPageNum}&size=${UsersList.pageSize}">${currentPageNum}</a>
+                                    </li>
+                                </c:if>
+                            </c:forEach>
+                            <li>
+                                <a href="${pageContext.request.contextPath}/users/findAll?page=${UsersList.pageNum+1}&size=${UsersList.pageSize}">下一页</a>
+                            </li>
+                            <li>
+                                <a href="${pageContext.request.contextPath}/users/findAll?page=${UsersList.pages}&size=${UsersList.pageSize}"
+                                   aria-label="Next">尾页</a>
                             </li>
                         </ul>
                     </div>
@@ -216,12 +216,13 @@
                 <!-- /.box-footer-->
 
 
-
             </div>
 
 
         </section>
         <!-- 正文区域 /-->
+
+
     </div>
     <!-- 内容区域 /-->
 
@@ -278,6 +279,13 @@
 <script src="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
 <script>
+    function changePageSize() {
+        //获取下拉框的值
+        var size = $("#selectPage").val();
+        //向服务器发送请求，改变每页显示条数
+        location.href = "${pageContext.request.contextPath}/users/findAll?page=1&size=" + size;
+    }
+
     $(document).ready(function () {
         // 选择框
         $(".select2").select2();
@@ -297,6 +305,17 @@
             liObj.addClass("active");
         }
     }
+
+    $(function () {
+        $("#dataList").DataTable({
+            "paging": false,
+            "lengthChange": true,
+            "searching": true,
+            "ordering": true,
+            "info": false,
+            "autoWidth": true
+        });
+    });
 
 
     $(document).ready(function () {

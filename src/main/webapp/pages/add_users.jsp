@@ -25,20 +25,24 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/datepicker/datepicker3.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/daterangepicker/daterangepicker.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/treeTable/jquery.treetable.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/treeTable/jquery.treetable.theme.default.css">
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/plugins/treeTable/jquery.treetable.theme.default.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/select2/select2.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/colorpicker/bootstrap-colorpicker.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/adminLTE/css/AdminLTE.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/adminLTE/css/skins/_all-skins.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/ionslider/ion.rangeSlider.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/ionslider/ion.rangeSlider.skinNice.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/bootstrap-slider/slider.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
 </head>
 
 <body class="hold-transition skin-purple sidebar-mini">
@@ -54,70 +58,69 @@
     <!-- 导航侧栏 /-->
 
     <!-- 内容区域 -->
-    <!-- 内容区域 -->
     <div class="content-wrapper">
+
         <!-- 内容头部 -->
         <section class="content-header">
             <h1>
-                数据管理
-                <small>数据列表</small>
+                产品管理 <small>产品表单</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-                <li><a href="#">数据管理</a></li>
-                <li class="active">数据列表</li>
+                <li><a href="${pageContext.request.contextPath}/index.jsp"><i
+                        class="fa fa-dashboard"></i> 首页</a></li>
+                <li><a
+                        href="${pageContext.request.contextPath}/users/findAll">产品管理</a></li>
+                <li class="active">产品表单</li>
             </ol>
         </section>
         <!-- 内容头部 /-->
 
-        <!-- 正文区域 -->
-        <section class="content">
-            <div class="row">
-                <!-- left column -->
-                <div class="col-md-6">
-                    <!-- general form elements -->
-                    <div class="box box-primary">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">添加</h3>
-                        </div>
-                        <!-- /.box-header -->
-                        <!-- form start -->
-                        <form role="form" action="${pageContext.request.contextPath}/account/save" method="post">
-                            <div class="box-body">
-                                <div class="form-group">
-                                    <label for="id">ID</label>
-                                    <input type="text" class="form-control" id="id" name="id" placeholder="Enter ...">
-                                </div>
-                                <div class="form-group">
-                                    <label for="uid">用户ID</label>
-                                    <input type="text" class="form-control" id="uid" name="uid" placeholder="Enter ...">
-                                </div>
-                                <div class="form-group">
-                                    <label for="money">金额</label>
-                                    <input type="text" class="form-control" id="money" name="money" placeholder="Enter ...">
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox"> Check me out
-                                    </label>
-                                </div>
-                            </div>
-                            <!-- /.box-body -->
+        <form action="${pageContext.request.contextPath}/users/save"
+              method="post" enctype="multipart/form-data">
+            <!-- 正文区域 -->
+            <section class="content"> <!--产品信息-->
 
-                            <div class="box-footer">
-                                <button type="submit" class="btn btn-primary">添加</button>
-                                <button type="submit" class="btn btn-default" onclick="history.back(-1)">取消</button>
-                            </div>
-                        </form>
+                <div class="panel panel-default">
+                    <div class="panel-heading">客房信息</div>
+                    <div class="row data-type">
+                        <div class="col-md-2 title">用户名</div>
+                        <div class="col-md-4 data">
+                            <input type="text" class="form-control" name="username"
+                                   placeholder="用户名" value="">
+                        </div>
+                        <div class="col-md-2 title">密码</div>
+                        <div class="col-md-4 data">
+                            <input type="text" class="form-control" placeholder="密码"
+                                   name="password" value="">
+                        </div>
+                        <div class="col-md-2 title">状态</div>
+                        <div class="col-md-4 data">
+                            <select class="form-control select2" style="width: 100%"
+                                    name="hostelStatus">
+                                <option value="1" selected="selected">未激活</option>
+                                <option value="9">已激活</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 title">权限</div>
+                        <div class="col-md-4 data">
+                            <select class="form-control select2" style="width: 100%"
+                                    name="cname">
+                                <option value="1" selected="selected">旅客</option>
+                                <option value="99">管理员</option>
+                            </select>
+                        </div>
                     </div>
-                    <!-- /.box -->
                 </div>
-            </div>
-            <!-- /.row -->
-        </section>
-        <!-- 正文区域 / -->
+                <!--订单信息/--> <!--工具栏-->
+                <div class="box-tools text-center">
+                    <button type="submit" class="btn bg-maroon">保存</button>
+                    <button type="button" class="btn bg-default"
+                            onclick="history.back(-1);">返回</button>
+                </div>
+                <!--工具栏/--> </section>
+            <!-- 正文区域 /-->
+        </form>
     </div>
-    <!-- 内容区域 /-->
     <!-- 内容区域 /-->
 
     <!-- 底部导航 -->

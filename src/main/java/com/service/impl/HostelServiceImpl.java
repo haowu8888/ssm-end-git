@@ -16,18 +16,27 @@ public class HostelServiceImpl implements HostelService {
     @Autowired
     private HostelDao hostelDao;
     @Override
-    public List<Hostel> findAll(int page, int size) {
-       // System.out.println("业务层:查询所有账户");
+    public List<Hostel> findAll(int page, int size) throws Exception {
         PageHelper.startPage(page,size);
         return hostelDao.findAll();
     }
     @Override
-    public void saveHostel(Hostel hostel) {
-        hostelDao.saveAccount(hostel);
+    public void saveHostel(Hostel hostel) throws Exception {
+        hostelDao.saveHostel(hostel);
     }
 
     @Override
-    public Hostel findById(int hid) throws Exception {
-        return hostelDao.findById(hid);
+    public Hostel findById(int id) throws Exception {
+        return hostelDao.findById(id);
     }
+
+    public void updateHostel(Hostel hostel) throws Exception {
+        hostelDao.updateHostel(hostel);
+    }
+
+    @Override
+    public void deleteHostel(int id) throws Exception {
+        hostelDao.deleteHostel(id);
+    }
+
 }

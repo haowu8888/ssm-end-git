@@ -30,4 +30,17 @@ public interface HostelService {
      * @return
      */
     public Hostel findById(int hid) throws Exception;
+
+    /**
+     * 更新
+     * @param hostel
+     * @throws Exception
+     */
+    public void updateHostel(Hostel hostel) throws Exception;
+
+    /**
+     * 删除
+     * @param id
+     */
+    public void deleteHostel(int id) throws Exception;
 }

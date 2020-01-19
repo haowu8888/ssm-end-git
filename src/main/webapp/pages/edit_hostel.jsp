@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -24,20 +25,24 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/datepicker/datepicker3.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/daterangepicker/daterangepicker.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/treeTable/jquery.treetable.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/treeTable/jquery.treetable.theme.default.css">
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/plugins/treeTable/jquery.treetable.theme.default.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/select2/select2.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/colorpicker/bootstrap-colorpicker.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/adminLTE/css/AdminLTE.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/adminLTE/css/skins/_all-skins.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/ionslider/ion.rangeSlider.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/ionslider/ion.rangeSlider.skinNice.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/bootstrap-slider/slider.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
 </head>
 
 <body class="hold-transition skin-purple sidebar-mini">
@@ -54,88 +59,101 @@
 
     <!-- 内容区域 -->
     <div class="content-wrapper">
+
         <!-- 内容头部 -->
         <section class="content-header">
             <h1>
-                订单管理 <small>全部订单</small>
+                产品管理 <small>产品表单</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="all-admin-index.html"><i
+                <li><a href="${pageContext.request.contextPath}/index.jsp"><i
                         class="fa fa-dashboard"></i> 首页</a></li>
-                <li><a href="all-order-manage-list.html">订单管理</a></li>
-                <li class="active">订单详情</li>
+                <li><a
+                        href="${pageContext.request.contextPath}/hostel/findAll">产品管理</a></li>
+                <li class="active">产品表单</li>
             </ol>
         </section>
         <!-- 内容头部 /-->
 
-        <!-- 正文区域 -->
-        <section class="content"> <!--订单信息-->
-            <div class="panel panel-default">
-                <div class="panel-heading">订单信息</div>
-                <div class="row data-type">
+        <form action="${pageContext.request.contextPath}/hostel/edit"
+              method="post" enctype="multipart/form-data">
+            <!-- 正文区域 -->
+            <section class="content"> <!--产品信息-->
 
-                    <div class="col-md-2 title">订单编号</div>
-                    <div class="col-md-4 data">
-                        <input type="text" class="form-control" placeholder="订单编号"
-                               value="${account.id }" readonly="readonly">
-                    </div>
-
-                    <div class="col-md-2 title">用户id</div>
-                    <div class="col-md-4 data">
-                        <div class="input-group date">
-                            <div class="input-group-addon">
-                                <i class="fa fa-calendar"></i>
-                            </div>
-                            <input type="text" class="form-control pull-right"
-                                   id="datepicker-a3" readonly="readonly"
-                                   value="${account.uid}">
+                <div class="panel panel-default">
+                    <div class="panel-heading">客房信息</div>
+                    <div class="row data-type">
+                        <input type="hidden" name="id" value="${hostel.id}">
+                        <div class="col-md-2 title">客房名称</div>
+                        <div class="col-md-4 data">
+                            <input type="text" class="form-control" name="hostelName"
+                                   placeholder="客房名称" value="${hostel.hostelName}">
                         </div>
-                    </div>
-                    <div class="col-md-2 title">金额</div>
-                    <div class="col-md-4 data">
-                        <input type="text" class="form-control" placeholder="路线名称"
-                               value="${account.money}" readonly="readonly">
-                    </div>
-
-                    <div class="col-md-2 title">出发城市</div>
-                    <div class="col-md-4 data">
-                        <input type="text" class="form-control" placeholder="出发城市"
-                               value="${account.id}" readonly="readonly">
-                    </div>
-
-                    <div class="col-md-2 title">出发时间</div>
-                    <div class="col-md-4 data">
-                        <div class="input-group date">
-                            <div class="input-group-addon">
-                                <i class="fa fa-calendar"></i>
-                            </div>
-                            <input type="text" class="form-control pull-right"
-                                   id="datepicker-a6" value="${account.id}"
-                                   readonly="readonly">
+                        <div class="col-md-2 title">客房价格</div>
+                        <div class="col-md-4 data">
+                            <input type="text" class="form-control" placeholder="客房价格"
+                                   name="hostelPrice" value="${hostel.hostelPrice}">
                         </div>
-                    </div>
-                    <div class="col-md-2 title">出游人数</div>
-                    <div class="col-md-4 data">
-                        <input type="text" class="form-control" placeholder="出游人数"
-                               value="${account.id}" readonly="readonly">
-                    </div>
+                        <div class="col-md-2 title">客房状态</div>
+                        <div class="col-md-4 data">
+                            <select class="form-control select2" style="width: 100%"
+                                    name="hostelStatus">
+                                <c:if test="${hostel.hostelStatus==0}">
+                                <option value="0" selected="selected">已出售</option>
+                                </c:if>
+                                <c:if test="${hostel.hostelStatus!=0}">
+                                    <option value="0">已出售</option>
+                                </c:if>
+                                <c:if test="${hostel.hostelStatus==1}">
+                                <option value="1" selected="selected">正在出售</option>
+                                </c:if>
+                                <c:if test="${hostel.hostelStatus!=1}">
+                                    <option value="1">正在出售</option>
+                                </c:if>
+                            </select>
+                        </div>
+                        <div class="col-md-2 title">客房种类</div>
+                        <div class="col-md-4 data">
+                            <select class="form-control select2" style="width: 100%"
+                                    name="cname">
+                                <c:if test="${hostel.cname=='单人间'}">
+                                <option value="单人间" selected="selected">单人间</option>
+                                </c:if>
+                                <c:if test="${hostel.cname!='单人间'}">
+                                    <option value="单人间">单人间</option>
+                                </c:if>
+                                <c:if test="${hostel.cname=='双人间'}">
+                                    <option value="双人间" selected="selected">双人间</option>
+                                </c:if>
+                                <c:if test="${hostel.cname!='双人间'}">
+                                    <option value="双人间">双人间</option>
+                                </c:if>
+                            </select>
+                        </div>
+                        <div class="col-md-2 title rowHeight2x">客房简述</div>
+                        <div class="col-md-10 data rowHeight2x">
+							<textarea class="form-control" rows="3" placeholder="客房简述"
+                                      name="hostelSketch">${hostel.hostelSketch}</textarea>
+                        </div>
+                        <div class="col-md-2 title">图片上传</div>
+                        <img src="${hostel.hostelImage}">
+                        <div class="col-md-10 data">
+                            <a href="javascript:;"  class="a-upload">
+                                <input type="file" name="upload">点击这里上传图片
+                            </a>
+                        </div>
 
-                    <div class="col-md-2 title rowHeight2x">其他信息</div>
-                    <div class="col-md-10 data rowHeight2x">
-						<textarea class="form-control" rows="3" placeholder="其他信息">
-                            ${account.id }
-                        </textarea>
                     </div>
-
                 </div>
-            </div>
-            <div class="box-tools text-center">
-
-                <button type="button" class="btn bg-default"
-                        onclick="history.back(-1);">返回</button>
-            </div>
-            <!--工具栏/--> </section>
-        <!-- 正文区域 /-->
+                <!--订单信息/--> <!--工具栏-->
+                <div class="box-tools text-center">
+                    <button type="submit" class="btn bg-maroon">保存</button>
+                    <button type="button" class="btn bg-default"
+                            onclick="history.back(-1);">返回</button>
+                </div>
+                <!--工具栏/--> </section>
+            <!-- 正文区域 /-->
+        </form>
     </div>
     <!-- 内容区域 /-->
 

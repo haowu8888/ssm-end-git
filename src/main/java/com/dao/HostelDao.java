@@ -1,8 +1,7 @@
 package com.dao;
 
 import com.domain.Hostel;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,18 +19,33 @@ public interface HostelDao {
      */
     @Select("select * from hostel")
     public List<Hostel> findAll();
+
+    /**
+     * 查询单个
+     * @param id
+     * @return
+     */
+    @Select("select * from hostel where id=#{id}")
+    public Hostel findById(int id);
+
     /**
      * 保存
      * @param hostel
      */
-    @Insert("insert into hostel(uid,money) values(#{uid},#{money})")
-    public void saveAccount(Hostel hostel);
+    @Insert("insert into hostel(hostelName,hostelImage,hostelPrice,hostelSketch,hostelStatus,cname) values(#{hostelName},#{hostelImage},#{hostelPrice},#{hostelSketch},#{hostelStatus},#{cname})")
+    public void saveHostel(Hostel hostel);
 
     /**
-     * 查询单个
-     * @param hid
-     * @return
+     * 更新
+     * @param hostel
      */
-    @Select("select * from hostel where id=#{id}")
-    public Hostel findById(int hid);
+    @Update("update hostel set hostelName=#{hostelName},hostelImage=#{hostelImage},hostelPrice=#{hostelPrice},hostelSketch=#{hostelSketch},hostelStatus=#{hostelStatus},cname=#{cname} where id=#{id}")
+    public void updateHostel(Hostel hostel);
+
+    /**
+     * 删除
+     * @param id
+     */
+    @Delete("delete from hostel where id=#{id}")
+    public void deleteHostel(int id);
 }

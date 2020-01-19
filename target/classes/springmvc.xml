@@ -15,14 +15,27 @@
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
     <!--配置视图解析器-->
+    <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+        <property name="templateLoaderPath" value="/pages/"/>
+    </bean>
+
+    <!-- html视图解析 -->
+    <bean id="htmlViewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>
+        <property name="contentType" value="text/html; charset=utf-8"/>
+        <property name="suffix" value=".html"/>
+        <property name="order" value="0"/>
+    </bean>
     <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/pages/"></property>
         <property name="suffix" value=".jsp"></property>
+        <property name="order" value="1"/>
     </bean>
     <!--过滤静态资源-->
     <mvc:resources location="/css/" mapping="/css/**"/>
     <mvc:resources location="/img/" mapping="/img/**"/>
     <mvc:resources location="/plugins/" mapping="/plugins/**"/>
+    <mvc:resources location="/upload/" mapping="/upload/**"/>
     <!--开启SpringMVC注解的支持-->
-    <mvc:annotation-driven></mvc:annotation-driven>
+    <mvc:annotation-driven/>
 </beans>
