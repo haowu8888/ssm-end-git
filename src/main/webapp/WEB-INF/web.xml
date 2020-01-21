@@ -30,6 +30,10 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+    <!--request配置-->
+    <listener>
+        <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+    </listener>
     <!--设置配置文件路径-->
     <context-param>
         <param-name>contextConfigLocation</param-name>

@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,18 +25,22 @@ import java.util.*;
 public class HostelController {
     @Autowired
     private HostelService hostelService;
+    @Autowired
+    private HttpServletRequest request;
 
     @RequestMapping("/findAll")
-    public String findAll(@RequestParam(name = "page", required = true, defaultValue = "1") int page, @RequestParam(name = "size", required = true, defaultValue = "5") int size, Model model) throws Exception {
+    public ModelAndView findAll(@RequestParam(name = "page", required = true, defaultValue = "1") Integer page, @RequestParam(name = "size", required = true, defaultValue = "5") Integer size) throws Exception {
+        ModelAndView mv = new ModelAndView();
         List<Hostel> hostelList = hostelService.findAll(page, size);
         //第二参数指定是连续显示的页数,可以不写
         PageInfo<Hostel> list = new PageInfo<Hostel>(hostelList);
-        model.addAttribute("HostelList", list);
-        return "list_hostel";
+        mv.addObject("HostelList", list);
+        mv.setViewName("list_hostel");
+        return mv;
     }
 
     @RequestMapping("/save")
-    public void save(MultipartFile upload, Hostel hostel, HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public String save(@RequestParam CommonsMultipartFile upload, Hostel hostel) throws Exception {
         //使用fileupload组件上传文件
         String path = request.getSession().getServletContext().getRealPath("/upload/");
         File file = new File(path);
@@ -51,13 +56,12 @@ public class HostelController {
         //调用service方法
         hostel.setHostelImage(uuid + "_" + filename);
         hostelService.saveHostel(hostel);
-        response.sendRedirect(request.getContextPath() + "/hostel/findAll");
-        //return "redirect:findAll";
+        //response.sendRedirect(request.getContextPath() + "/hostel/findAll");
+        return "redirect:findAll";
     }
     @RequestMapping("/edit")
-    public void edit(MultipartFile upload, Hostel hostel, HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public String edit(@RequestParam CommonsMultipartFile upload, Hostel hostel) throws Exception {
         String path = request.getSession().getServletContext().getRealPath("/upload/");
-
         Hostel h = hostelService.findById(hostel.getId());
         String hostelImage =path+ h.getHostelImage();
         File f = new File(hostelImage);
@@ -79,12 +83,12 @@ public class HostelController {
         //调用service方法
         hostel.setHostelImage(uuid + "_" + filename);
         hostelService.updateHostel(hostel);
-        response.sendRedirect(request.getContextPath() + "/hostel/findAll");
-        //return "redirect:findAll";
+        //response.sendRedirect(request.getContextPath() + "/hostel/findAll");
+        return "redirect:findAll";
     }
 
     @RequestMapping("/findById")
-    public ModelAndView findById(@RequestParam(name = "id", required = true) int id, HttpServletRequest request) throws Exception {
+    public ModelAndView findById(@RequestParam(name = "id", required = true) Integer id) throws Exception {
         ModelAndView mv = new ModelAndView();
         Hostel hostel = hostelService.findById(id);
         hostel.setHostelImage(request.getContextPath()+"/upload/"+hostel.getHostelImage());
@@ -94,7 +98,7 @@ public class HostelController {
     }
 
     @RequestMapping("/delete")
-    public String delete(@RequestParam(name = "id",required = true) int id,HttpServletRequest request) throws Exception{
+    public String delete(@RequestParam(name = "id",required = true) Integer id) throws Exception{
         Hostel hostel = hostelService.findById(id);
         String hostelImage =request.getSession().getServletContext().getRealPath("/upload/")+ hostel.getHostelImage();
         File file = new File(hostelImage);

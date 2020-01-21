@@ -18,4 +18,10 @@ public interface UsersService extends UserDetailsService {
      * @throws Exception
      */
     List<Users> findAll(int page, int size) throws Exception;
+
+    /**
+     * 保存
+     * @param users
+     */
+    void saveHostel(Users users);
 }

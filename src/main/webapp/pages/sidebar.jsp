@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
@@ -8,7 +9,9 @@
                 <img src="${pageContext.request.contextPath}/img/user2-160x160.jpg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>张猿猿</p>
+                <p>
+                    <security:authentication property="principal.username"></security:authentication>
+                </p>
                 <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
             </div>
         </div>
@@ -55,17 +58,18 @@
                             <i class="fa fa-circle-o"></i> 注册
                         </a>
                     </li>
-
                     <li id="admin-datalist">
                         <a href="/ssm/hostel/findAll?page=1&size=5">
                             <i class="fa fa-circle-o"></i> 客房信息管理
                         </a>
                     </li>
-                    <li id="admin-datalist1">
-                        <a href="/ssm/users/findAll">
-                            <i class="fa fa-circle-o"></i> 用户信息管理
-                        </a>
-                    </li>
+                    <security:authorize access="hasRole('ROLE_ADMIN')">
+                        <li id="admin-datalist1">
+                            <a href="/ssm/users/findAll">
+                                <i class="fa fa-circle-o"></i> 用户信息管理
+                            </a>
+                        </li>
+                    </security:authorize>
                 </ul>
             </li>
 

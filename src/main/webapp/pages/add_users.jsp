@@ -96,7 +96,7 @@
                         <div class="col-md-2 title">状态</div>
                         <div class="col-md-4 data">
                             <select class="form-control select2" style="width: 100%"
-                                    name="hostelStatus">
+                                    name="status">
                                 <option value="1" selected="selected">未激活</option>
                                 <option value="9">已激活</option>
                             </select>
@@ -104,7 +104,7 @@
                         <div class="col-md-2 title">权限</div>
                         <div class="col-md-4 data">
                             <select class="form-control select2" style="width: 100%"
-                                    name="cname">
+                                    name="role">
                                 <option value="1" selected="selected">旅客</option>
                                 <option value="99">管理员</option>
                             </select>

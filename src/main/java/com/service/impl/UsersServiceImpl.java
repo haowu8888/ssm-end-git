@@ -9,6 +9,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,11 +21,14 @@ import java.util.List;
 public class UsersServiceImpl implements UsersService {
     @Autowired
     private UsersDao usersDao;
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Users users = usersDao.findByName(username);
-        User user = new User(users.getUsername(), "{noop}"+users.getPassword(), getAuthority(users.getRole()));
-        User user1 = new User(users.getUsername(), "{noop}"+users.getPassword(),users.getStatus()==9?true:false,true,true,true, getAuthority(users.getRole()));
+        User user = new User(users.getUsername(), users.getPassword(), getAuthority(users.getRole()));
+       // User user1 = new User(users.getUsername(), users.getPassword(),users.getStatus()==9?true:false,true,true,true, getAuthority(users.getRole()));
         return user;
     }
 
@@ -43,5 +47,12 @@ public class UsersServiceImpl implements UsersService {
     public List<Users> findAll(int page, int size) throws Exception {
         PageHelper.startPage(page,size);
         return usersDao.findAll();
+    }
+
+    @Override
+    public void saveHostel(Users users) {
+        //进行密码加密
+        users.setPassword(bCryptPasswordEncoder.encode(users.getPassword()));
+        usersDao.saveUsers(users);
     }
 }
