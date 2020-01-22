@@ -7,27 +7,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1ec963d-5bfa-482f-baf4-51d668483b37" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/controller/LogAop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dao/SyslogDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/domain/Syslog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/service/SyslogService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/service/impl/SyslogServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/controller/SyslogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/pages/list_syslog.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/HostelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/HostelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/UsersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dao/UsersDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dao/UsersDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/UsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/UsersService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/impl/UsersServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/impl/UsersServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spring-security.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spring-security.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/springmvc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/add_users.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/add_users.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/edit_hostel.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/edit_hostel.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dao/SyslogDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dao/SyslogDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/SyslogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/SyslogService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/service/impl/SyslogServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/service/impl/SyslogServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/list_hostel.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/list_hostel.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/list_users.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/list_users.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/pages/sidebar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/pages/sidebar.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/ssm_study_end.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/springmvc.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,8 +45,8 @@
         <option value="spring-beans.schema" />
         <option value="HTML File" />
         <option value="Jsp File" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -111,7 +99,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/pages" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Artifacts" />
@@ -120,8 +108,11 @@
     <property name="settings.editor.selected.configurable" value="spring" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ideaApp\ssm_03_springmvc_start\ssm_study_end\src\main\webapp\pages" />
       <recent name="D:\ideaApp\ssm_03_springmvc_start\ssm_study_end\src\main\webapp" />
+      <recent name="D:\ideaApp\ssm_03_springmvc_start\ssm_study_end\src\main\webapp\upload" />
+      <recent name="D:\ideaApp\ssm_03_springmvc_start\ssm_study_end\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.service" />
@@ -129,11 +120,8 @@
       <recent name="com.service.impl" />
       <recent name="com.dao" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\ideaApp\ssm_03_springmvc_start\ssm_study_end\src\main\webapp" />
-      <recent name="D:\ideaApp\ssm_03_springmvc_start\ssm_study_end\src\main\webapp\upload" />
-      <recent name="D:\ideaApp\ssm_03_springmvc_start\ssm_study_end\src\main\webapp\pages" />
-      <recent name="D:\ideaApp\ssm_03_springmvc_start\ssm_study_end\src\main\resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -359,7 +347,8 @@
       <workItem from="1579495168402" duration="4448000" />
       <workItem from="1579530511423" duration="6868000" />
       <workItem from="1579577849266" duration="7718000" />
-      <workItem from="1579587666153" duration="1860000" />
+      <workItem from="1579587666153" duration="4816000" />
+      <workItem from="1579663341091" duration="1507000" />
     </task>
     <task id="LOCAL-00001" summary="项目第一次提交 ssm_end">
       <created>1576665670164</created>
@@ -396,7 +385,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579420327975</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="项目第五次提交 ssm_end 日志完成">
+      <created>1579589569931</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1579589569931</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -443,7 +439,8 @@
     <MESSAGE value="项目第二次提交 ssm_end" />
     <MESSAGE value="项目第三次提交 ssm_end" />
     <MESSAGE value="项目第四次提交 ssm_end" />
-    <option name="LAST_COMMIT_MESSAGE" value="项目第四次提交 ssm_end" />
+    <MESSAGE value="项目第五次提交 ssm_end 日志完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="项目第五次提交 ssm_end 日志完成" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="90" key="#Notifications" timestamp="1577091548771">
@@ -466,10 +463,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="513" y="235" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.864@0.0.1536.864" timestamp="1579586303061" />
-    <state x="574" y="116" key="#com.intellij.ide.util.MemberChooser" timestamp="1579507795346">
+    <state x="574" y="116" key="#com.intellij.ide.util.MemberChooser" timestamp="1579592809757">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="574" y="116" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1579507795346" />
+    <state x="574" y="116" key="#com.intellij.ide.util.MemberChooser/0.0.1536.864@0.0.1536.864" timestamp="1579592809757" />
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1579264590435">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -478,62 +475,62 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="499" y="178" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.864@0.0.1536.864" timestamp="1579419823205" />
-    <state x="327" y="22" key="CommitChangelistDialog2" timestamp="1579420322983">
+    <state x="327" y="22" key="CommitChangelistDialog2" timestamp="1579589567461">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="327" y="22" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1579420322983" />
+    <state x="327" y="22" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1579589567461" />
     <state x="549" y="173" key="FileChooserDialogImpl" timestamp="1579253782390">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="549" y="173" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1579253782390" />
-    <state width="1493" height="253" key="GridCell.Tab.0.bottom" timestamp="1579588908691">
+    <state width="1493" height="253" key="GridCell.Tab.0.bottom" timestamp="1579678405425">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="253" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1579588908691" />
-    <state width="1493" height="253" key="GridCell.Tab.0.center" timestamp="1579588908691">
+    <state width="1493" height="253" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1579678405425" />
+    <state width="1493" height="253" key="GridCell.Tab.0.center" timestamp="1579678405424">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="253" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1579588908691" />
-    <state width="1493" height="253" key="GridCell.Tab.0.left" timestamp="1579588908691">
+    <state width="1493" height="253" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1579678405424" />
+    <state width="1493" height="253" key="GridCell.Tab.0.left" timestamp="1579678405424">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="253" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1579588908691" />
-    <state width="1493" height="253" key="GridCell.Tab.0.right" timestamp="1579588908691">
+    <state width="1493" height="253" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1579678405424" />
+    <state width="1493" height="253" key="GridCell.Tab.0.right" timestamp="1579678405425">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="253" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1579588908691" />
-    <state width="1493" height="253" key="GridCell.Tab.1.bottom" timestamp="1579588908691">
+    <state width="1493" height="253" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1579678405425" />
+    <state width="1493" height="253" key="GridCell.Tab.1.bottom" timestamp="1579678405425">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="253" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1579588908691" />
-    <state width="1493" height="253" key="GridCell.Tab.1.center" timestamp="1579588908691">
+    <state width="1493" height="253" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1579678405425" />
+    <state width="1493" height="253" key="GridCell.Tab.1.center" timestamp="1579678405425">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="253" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1579588908691" />
-    <state width="1493" height="253" key="GridCell.Tab.1.left" timestamp="1579588908691">
+    <state width="1493" height="253" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1579678405425" />
+    <state width="1493" height="253" key="GridCell.Tab.1.left" timestamp="1579678405425">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="253" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1579588908691" />
-    <state width="1493" height="253" key="GridCell.Tab.1.right" timestamp="1579588908691">
+    <state width="1493" height="253" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1579678405425" />
+    <state width="1493" height="253" key="GridCell.Tab.1.right" timestamp="1579678405425">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="253" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1579588908691" />
-    <state width="1493" height="253" key="GridCell.Tab.2.bottom" timestamp="1579588908691">
+    <state width="1493" height="253" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1579678405425" />
+    <state width="1493" height="253" key="GridCell.Tab.2.bottom" timestamp="1579678405425">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="253" key="GridCell.Tab.2.bottom/0.0.1536.864@0.0.1536.864" timestamp="1579588908691" />
-    <state width="1493" height="253" key="GridCell.Tab.2.center" timestamp="1579588908691">
+    <state width="1493" height="253" key="GridCell.Tab.2.bottom/0.0.1536.864@0.0.1536.864" timestamp="1579678405425" />
+    <state width="1493" height="253" key="GridCell.Tab.2.center" timestamp="1579678405425">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="253" key="GridCell.Tab.2.center/0.0.1536.864@0.0.1536.864" timestamp="1579588908691" />
-    <state width="1493" height="253" key="GridCell.Tab.2.left" timestamp="1579588908691">
+    <state width="1493" height="253" key="GridCell.Tab.2.center/0.0.1536.864@0.0.1536.864" timestamp="1579678405425" />
+    <state width="1493" height="253" key="GridCell.Tab.2.left" timestamp="1579678405425">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="253" key="GridCell.Tab.2.left/0.0.1536.864@0.0.1536.864" timestamp="1579588908691" />
-    <state width="1493" height="253" key="GridCell.Tab.2.right" timestamp="1579588908691">
+    <state width="1493" height="253" key="GridCell.Tab.2.left/0.0.1536.864@0.0.1536.864" timestamp="1579678405425" />
+    <state width="1493" height="253" key="GridCell.Tab.2.right" timestamp="1579678405425">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="253" key="GridCell.Tab.2.right/0.0.1536.864@0.0.1536.864" timestamp="1579588908691" />
+    <state width="1493" height="253" key="GridCell.Tab.2.right/0.0.1536.864@0.0.1536.864" timestamp="1579678405425" />
     <state width="1493" height="240" key="GridCell.Tab.3.bottom" timestamp="1579587545479">
       <screen x="0" y="0" width="1536" height="864" />
     </state>

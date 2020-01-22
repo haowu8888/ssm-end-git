@@ -68,8 +68,8 @@
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> 首页</a></li>
-                <li><a href="#">数据管理</a></li>
-                <li class="active">数据列表</li>
+                <li><a href="#">日志管理</a></li>
+                <li class="active">日志列表</li>
             </ol>
         </section>
         <!-- 内容头部 /-->
@@ -91,17 +91,11 @@
                         <!--工具栏-->
                         <div class="pull-left">
                             <div class="form-group form-inline">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default" title="新建"
-                                            onclick="location.href='${pageContext.request.contextPath}/pages/add_users.jsp'">
-                                        <i class="fa fa-file-o"></i> 新建
-                                    </button>
                                     <button type="button" class="btn btn-default" title="刷新"
-                                            onclick="location.href='${pageContext.request.contextPath}/users/findAll'">
+                                            onclick="location.href='${pageContext.request.contextPath}/syslog/findAll'">
                                         <i class="fa fa-refresh"></i> 刷新
                                     </button>
                                 </div>
-                            </div>
                         </div>
                         <!--工具栏/-->
 
@@ -109,41 +103,24 @@
                         <table id="dataList" class="table table-bordered table-hover dataTable">
                             <thead>
                             <tr>
+                                <th>访问时间</th>
                                 <th>用户名</th>
-                                <th>密码</th>
-                                <th>状态</th>
-                                <th>权限</th>
-                                <th>管理</th>
+                                <th>ip</th>
+                                <th>url</th>
+                                <th>执行时长</th>
+                                <th>方法</th>
                             </tr>
                             </thead>
                             <tbody>
 
-                            <c:forEach items="${UsersList.list}" var="users">
+                            <c:forEach items="${syslogList.list}" var="syslog">
                                 <tr>
-                                    <td>${users.username}</td>
-                                    <td>${users.password}</td>
-                                    <c:if test="${users.status==1}">
-                                        <td>未激活</td>
-                                    </c:if>
-                                    <c:if test="${users.status==9}">
-                                        <td>已激活</td>
-                                    </c:if>
-                                    <c:if test="${users.role==1}">
-                                        <td>旅客</td>
-                                    </c:if>
-                                    <c:if test="${users.role==99}">
-                                        <td>管理员</td>
-                                    </c:if>
-                                    <td class="text-center">
-                                        <button type="button" class="btn bg-olive btn-xs"
-                                                onclick="location.href='${pageContext.request.contextPath}/users/findById?id='+${users.id}">
-                                            编辑
-                                        </button>
-                                        <button type="button" class="btn bg-olive btn-xs"
-                                                onclick="location.href='${pageContext.request.contextPath}/users/delete?id='+${users.id}">
-                                            删除
-                                        </button>
-                                    </td>
+                                    <td>${syslog.visitTime}</td>
+                                    <td>${syslog.username}</td>
+                                    <td>${syslog.ip}</td>
+                                    <td>${syslog.url}</td>
+                                    <td>${syslog.executionTime}</td>
+                                    <td>${syslog.method}</td>
                                 </tr>
                             </c:forEach>
                             </tbody>
@@ -167,13 +144,13 @@
                 <div class="box-footer">
                     <div class="pull-left">
                         <div class="form-group form-inline">
-                            总共${UsersList.pages}页，共${UsersList.total}条数据。 每页
+                            总共${syslogList.pages}页，共${syslogList.total}条数据。 每页
                             <select class="form-control" id="selectPage" onchange="changePageSize()">
                                 <c:forEach begin="5" end="50" var="number" step="5">
-                                    <c:if test="${UsersList.pageSize==number}">
+                                    <c:if test="${syslogList.pageSize==number}">
                                         <option selected="selected">${number}</option>
                                     </c:if>
-                                    <c:if test="${UsersList.pageSize!=number}">
+                                    <c:if test="${syslogList.pageSize!=number}">
                                         <option>${number}</option>
                                     </c:if>
                                 </c:forEach>
@@ -184,29 +161,29 @@
                     <div class="box-tools pull-right">
                         <ul class="pagination">
                             <li>
-                                <a href="${pageContext.request.contextPath}/users/findAll?page=1&size=${UsersList.pageSize}"
+                                <a href="${pageContext.request.contextPath}/syslog/findAll?page=1&size=${syslogList.pageSize}"
                                    aria-label="Previous">首页</a>
                             </li>
                             <li>
-                                <a href="${pageContext.request.contextPath}/users/findAll?page=${UsersList.pageNum-1}&size=${UsersList.pageSize}">上一页</a>
+                                <a href="${pageContext.request.contextPath}/syslog/findAll?page=${syslogList.pageNum-1}&size=${syslogList.pageSize}">上一页</a>
                             </li>
-                            <c:forEach begin="1" end="${UsersList.pages}" var="currentPageNum">
-                                <c:if test="${currentPageNum==UsersList.pageNum}">
+                            <c:forEach begin="1" end="${syslogList.pages}" var="currentPageNum">
+                                <c:if test="${currentPageNum==syslogList.pageNum}">
                                     <li>
-                                        <a href="${pageContext.request.contextPath}/users/findAll?page=${currentPageNum}&size=${UsersList.pageSize}"
+                                        <a href="${pageContext.request.contextPath}/syslog/findAll?page=${currentPageNum}&size=${syslogList.pageSize}"
                                            style="background-color:#0f74a8;color:#f0f0f0">${currentPageNum}</a></li>
                                 </c:if>
-                                <c:if test="${currentPageNum!=UsersList.pageNum}">
+                                <c:if test="${currentPageNum!=syslogList.pageNum}">
                                     <li>
-                                        <a href="${pageContext.request.contextPath}/users/findAll?page=${currentPageNum}&size=${UsersList.pageSize}">${currentPageNum}</a>
+                                        <a href="${pageContext.request.contextPath}/syslog/findAll?page=${currentPageNum}&size=${syslogList.pageSize}">${currentPageNum}</a>
                                     </li>
                                 </c:if>
                             </c:forEach>
                             <li>
-                                <a href="${pageContext.request.contextPath}/users/findAll?page=${UsersList.pageNum+1}&size=${UsersList.pageSize}">下一页</a>
+                                <a href="${pageContext.request.contextPath}/syslog/findAll?page=${syslogList.pageNum+1}&size=${syslogList.pageSize}">下一页</a>
                             </li>
                             <li>
-                                <a href="${pageContext.request.contextPath}/users/findAll?page=${UsersList.pages}&size=${UsersList.pageSize}"
+                                <a href="${pageContext.request.contextPath}/syslog/findAll?page=${syslogList.pages}&size=${syslogList.pageSize}"
                                    aria-label="Next">尾页</a>
                             </li>
                         </ul>
@@ -283,7 +260,7 @@
         //获取下拉框的值
         var size = $("#selectPage").val();
         //向服务器发送请求，改变每页显示条数
-        location.href = "${pageContext.request.contextPath}/users/findAll?page=1&size=" + size;
+        location.href = "${pageContext.request.contextPath}/syslog/findAll?page=1&size=" + size;
     }
 
     $(document).ready(function () {

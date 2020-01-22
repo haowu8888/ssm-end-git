@@ -160,7 +160,7 @@
                         <div class="form-group form-inline">
                             总共${HostelList.pages}页，共${HostelList.total}条数据。 每页
                             <select class="form-control" id="selectPage" onchange="changePageSize()">
-                                <c:forEach begin="1" end="5" var="number">
+                                <c:forEach begin="5" end="50" var="number" step="5">
                                     <c:if test="${HostelList.pageSize==number}">
                                         <option selected="selected">${number}</option>
                                     </c:if>

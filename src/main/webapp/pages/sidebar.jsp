@@ -70,6 +70,11 @@
                             </a>
                         </li>
                     </security:authorize>
+                    <li id="admin-datalist1">
+                        <a href="/ssm/syslog/findAll">
+                            <i class="fa fa-circle-o"></i> 日志信息管理
+                        </a>
+                    </li>
                 </ul>
             </li>
 
