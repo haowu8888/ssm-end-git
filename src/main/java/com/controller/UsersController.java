@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -40,8 +41,29 @@ public class UsersController {
     @RequestMapping("/save")
     public String save(Users users) throws Exception {
         //调用service方法
-        usersService.saveHostel(users);
+        usersService.saveUsers(users);
        //response.sendRedirect(request.getContextPath() + "/users/findAll");
+        return "redirect:findAll";
+    }
+
+    @RequestMapping("/edit")
+    public String edit(Users users) throws Exception {
+        usersService.updateUsers(users);
+        return "redirect:findAll";
+    }
+
+    @RequestMapping("/findById")
+    public ModelAndView findById(@RequestParam(name = "id", required = true) Integer id) throws Exception {
+        ModelAndView mv = new ModelAndView();
+        Users users = usersService.findById(id);
+        mv.addObject("users", users);
+        mv.setViewName("edit_users");
+        return mv;
+    }
+
+    @RequestMapping("/delete")
+    public String delete(@RequestParam(name = "id",required = true) Integer id) throws Exception{
+        usersService.deleteUsers(id);
         return "redirect:findAll";
     }
 }

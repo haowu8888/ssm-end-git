@@ -1,4 +1,3 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -75,38 +74,60 @@
         </section>
         <!-- 内容头部 /-->
 
-        <form action="${pageContext.request.contextPath}/users/save"
-              method="post">
+        <form action="${pageContext.request.contextPath}/users/edit"
+              method="post" >
             <!-- 正文区域 -->
             <section class="content"> <!--产品信息-->
 
                 <div class="panel panel-default">
                     <div class="panel-heading">信息</div>
                     <div class="row data-type">
+                        <input type="hidden" name="id" value="${users.id}">
+
                         <div class="col-md-2 title">用户名</div>
                         <div class="col-md-4 data">
                             <input type="text" class="form-control" name="username"
-                                   placeholder="用户名" value="">
+                                   placeholder="用户名" value="${users.username}">
                         </div>
                         <div class="col-md-2 title">密码</div>
                         <div class="col-md-4 data">
                             <input type="text" class="form-control" placeholder="密码"
-                                   name="password" value="">
+                                   name="password" value="${users.password}">
                         </div>
                         <div class="col-md-2 title">状态</div>
                         <div class="col-md-4 data">
                             <select class="form-control select2" style="width: 100%"
                                     name="status">
+                                <c:if test="${users.status==1}">
                                 <option value="1" selected="selected">未激活</option>
-                                <option value="9">已激活</option>
+                                </c:if>
+                                <c:if test="${users.status!=1}">
+                                    <option value="1">未激活</option>
+                                </c:if>
+                                <c:if test="${users.status==9}">
+                                <option value="9" selected="selected">已激活</option>
+                                </c:if>
+                                <c:if test="${users.status!=9}">
+                                    <option value="9">已激活</option>
+                                </c:if>
                             </select>
                         </div>
                         <div class="col-md-2 title">权限</div>
                         <div class="col-md-4 data">
                             <select class="form-control select2" style="width: 100%"
                                     name="role">
+                                <c:if test="${users.role==1}">
                                 <option value="1" selected="selected">旅客</option>
-                                <option value="99">管理员</option>
+                                </c:if>
+                                <c:if test="${users.role!=1}">
+                                    <option value="1">旅客</option>
+                                </c:if>
+                                <c:if test="${users.role==99}">
+                                    <option value="99" selected="selected">管理员</option>
+                                </c:if>
+                                <c:if test="${users.role!=99}">
+                                    <option value="99">管理员</option>
+                                </c:if>
                             </select>
                         </div>
                     </div>

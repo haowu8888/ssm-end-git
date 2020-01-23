@@ -50,9 +50,28 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public void saveHostel(Users users) {
+    public void saveUsers(Users users) {
         //进行密码加密
         users.setPassword(bCryptPasswordEncoder.encode(users.getPassword()));
         usersDao.saveUsers(users);
     }
+
+    @Override
+    public void updateUsers(Users users) {
+        users.setPassword(bCryptPasswordEncoder.encode(users.getPassword()));
+        usersDao.updateUsers(users);
+    }
+
+    @Override
+    public void deleteUsers(Integer id) {
+        usersDao.deleteUsers(id);
+    }
+
+    @Override
+    public Users findById(Integer id) {
+        Users users=usersDao.findById(id);
+        return users;
+    }
+
+
 }

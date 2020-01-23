@@ -23,5 +23,11 @@ public interface UsersService extends UserDetailsService {
      * 保存
      * @param users
      */
-    void saveHostel(Users users);
+    void saveUsers(Users users);
+
+    void updateUsers(Users users);
+
+    void deleteUsers(Integer id);
+
+    Users findById(Integer id);
 }
